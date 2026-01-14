@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,8 +20,11 @@ export default function Header() {
     <header className="fixed w-full top-0 z-50 bg-brand-900/95 backdrop-blur-sm border-b border-brand-800">
       <nav className="container-width px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-display font-bold text-brand-50 hover:text-accent-400 transition-colors">
-          VENUE
+        <Link
+          href="/"
+          className="text-2xl font-display font-bold text-brand-50 hover:text-accent-400 transition-colors"
+        >
+          ONEZ
         </Link>
 
         {/* Desktop Navigation */}
