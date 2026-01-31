@@ -31,7 +31,7 @@ export default function Home() {
       <Hero
         title="Where Culture Comes Alive"
         subtitle="Experience unforgettable moments in our premier cultural venue. From intimate performances to grand exhibitions, we create spaces for art, music, and community to flourish."
-        imageSrc="/images/hero.jpg"
+        imageSrc="/images/onez-main.jpg"
         imageAlt="Venue interior"
         height="full"
       >
