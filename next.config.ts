@@ -1,10 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  output: 'export', // Static site generation
-  images: {
-    unoptimized: true, // Required for static export
-  },
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
