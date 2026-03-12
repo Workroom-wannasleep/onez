@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Venue", href: "/venue" },
+  { name: "Space", href: "/venue" },
   { name: "Events", href: "/events" },
   { name: "Contact", href: "/contact" },
 ];
@@ -15,13 +15,34 @@ const navigation = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-brand-900/95 backdrop-blur-sm border-b border-brand-800">
+    <header
+      className={`fixed top-0 left-0 z-50 w-full text-white transition-all duration-300 ${
+        scrolled
+          ? "bg-black/40 backdrop-blur-md shadow-md"
+          : "bg-transparent"
+      }`}
+    >
       <nav className="container-width px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-display font-bold text-brand-50 hover:text-accent-400 transition-colors">
-          VENUE
+        <Link
+          href="/"
+          className="text-2xl font-display font-bold text-brand-50 hover:text-accent-400 transition-colors"
+        >
+          Onez
         </Link>
 
         {/* Desktop Navigation */}
@@ -77,7 +98,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-brand-800 border-t border-brand-700">
+        <div className="md:hidden bg-brand-800/95 backdrop-blur-md border-t border-brand-700">
           <div className="px-6 py-4 space-y-3">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
