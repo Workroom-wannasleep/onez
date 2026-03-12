@@ -1,19 +1,20 @@
-import { Metadata } from "next";
+'use client';
+
 import Hero from "@/components/ui/Hero";
 import Section from "@/components/ui/Section";
-
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with our team to book the venue, ask questions, or learn more about our services.",
-};
+import { useLanguage } from "@/context/LanguageContext";
+import { translations, t } from "@/lib/translations";
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const tr = translations.contact;
+
   return (
     <>
       {/* Hero Section */}
       <Hero
-        title="Get in Touch"
-        subtitle="We'd love to hear from you. Reach out with any questions or to book our venue."
+        title={t(tr.heroTitle, lang)}
+        subtitle={t(tr.heroSubtitle, lang)}
         imageSrc="/images/contact-hero.jpg"
         imageAlt="Contact us"
         height="small"
@@ -25,17 +26,13 @@ export default function Contact() {
           {/* Contact Form */}
           <div>
             <h2 className="heading-md text-brand-50 mb-8">
-              Send Us a Message
+              {t(tr.formTitle, lang)}
             </h2>
 
-            {/*
-              Note: This form uses Formspree/EmailJS in production.
-              Replace action URL with your service endpoint.
-            */}
             <form className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-brand-200 mb-2">
-                  Name *
+                  {t(tr.nameLabel, lang)}
                 </label>
                 <input
                   type="text"
@@ -43,13 +40,13 @@ export default function Contact() {
                   name="name"
                   required
                   className="w-full px-4 py-3 bg-brand-800 border border-brand-600 text-brand-50 placeholder:text-brand-400 rounded-sm focus:outline-none focus:border-accent-400 transition-colors"
-                  placeholder="Your name"
+                  placeholder={t(tr.namePlaceholder, lang)}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-brand-200 mb-2">
-                  Email *
+                  {t(tr.emailLabel, lang)}
                 </label>
                 <input
                   type="email"
@@ -63,20 +60,20 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-brand-200 mb-2">
-                  Phone
+                  {t(tr.phoneLabel, lang)}
                 </label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   className="w-full px-4 py-3 bg-brand-800 border border-brand-600 text-brand-50 placeholder:text-brand-400 rounded-sm focus:outline-none focus:border-accent-400 transition-colors"
-                  placeholder="(123) 456-7890"
+                  placeholder={t(tr.phonePlaceholder, lang)}
                 />
               </div>
 
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-brand-200 mb-2">
-                  Subject *
+                  {t(tr.subjectLabel, lang)}
                 </label>
                 <select
                   id="subject"
@@ -84,18 +81,18 @@ export default function Contact() {
                   required
                   className="w-full px-4 py-3 bg-brand-800 border border-brand-600 text-brand-50 rounded-sm focus:outline-none focus:border-accent-400 transition-colors"
                 >
-                  <option value="">Select a subject</option>
-                  <option value="booking">Venue Booking Inquiry</option>
-                  <option value="event">Event Information</option>
-                  <option value="partnership">Partnership Opportunity</option>
-                  <option value="general">General Question</option>
-                  <option value="other">Other</option>
+                  <option value="">{t(tr.subjectPlaceholder, lang)}</option>
+                  <option value="booking">{t(tr.subjectOptions.booking, lang)}</option>
+                  <option value="event">{t(tr.subjectOptions.event, lang)}</option>
+                  <option value="partnership">{t(tr.subjectOptions.partnership, lang)}</option>
+                  <option value="general">{t(tr.subjectOptions.general, lang)}</option>
+                  <option value="other">{t(tr.subjectOptions.other, lang)}</option>
                 </select>
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-brand-200 mb-2">
-                  Message *
+                  {t(tr.messageLabel, lang)}
                 </label>
                 <textarea
                   id="message"
@@ -103,7 +100,7 @@ export default function Contact() {
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-brand-800 border border-brand-600 text-brand-50 placeholder:text-brand-400 rounded-sm focus:outline-none focus:border-accent-400 transition-colors resize-none"
-                  placeholder="Tell us more about your inquiry..."
+                  placeholder={t(tr.messagePlaceholder, lang)}
                 />
               </div>
 
@@ -111,11 +108,11 @@ export default function Contact() {
                 type="submit"
                 className="w-full px-8 py-4 bg-accent-500 text-brand-900 font-medium rounded-sm hover:bg-accent-400 active:bg-accent-600 transition-colors"
               >
-                Send Message
+                {t(tr.sendBtn, lang)}
               </button>
 
               <p className="text-xs text-brand-400">
-                * Required fields. We&apos;ll respond to your inquiry within 1-2 business days.
+                {t(tr.requiredNote, lang)}
               </p>
             </form>
           </div>
@@ -123,26 +120,24 @@ export default function Contact() {
           {/* Contact Information */}
           <div>
             <h2 className="heading-md text-brand-50 mb-8">
-              Contact Information
+              {t(tr.infoTitle, lang)}
             </h2>
 
             <div className="space-y-8">
               {/* Address */}
               <div>
                 <h3 className="text-sm font-semibold text-brand-200 uppercase tracking-wider mb-3">
-                  Address
+                  {t(tr.addressLabel, lang)}
                 </h3>
-                <p className="text-brand-300">
-                  123 Cultural Street<br />
-                  City, State 12345<br />
-                  United States
+                <p className="text-brand-300 whitespace-pre-line">
+                  {t(tr.address, lang)}
                 </p>
               </div>
 
               {/* Phone */}
               <div>
                 <h3 className="text-sm font-semibold text-brand-200 uppercase tracking-wider mb-3">
-                  Phone
+                  {t(tr.phoneLabel2, lang)}
                 </h3>
                 <p className="text-brand-300">
                   <a href="tel:+1234567890" className="hover:text-accent-400 transition-colors">
@@ -154,23 +149,23 @@ export default function Contact() {
               {/* Email */}
               <div>
                 <h3 className="text-sm font-semibold text-brand-200 uppercase tracking-wider mb-3">
-                  Email
+                  {t(tr.emailLabel2, lang)}
                 </h3>
                 <div className="space-y-2 text-brand-300">
                   <p>
-                    General Inquiries:{' '}
+                    {t(tr.generalInquiry, lang)}:{' '}
                     <a href="mailto:info@venue.com" className="hover:text-accent-400 transition-colors">
                       info@venue.com
                     </a>
                   </p>
                   <p>
-                    Bookings:{' '}
+                    {t(tr.bookings, lang)}:{' '}
                     <a href="mailto:bookings@venue.com" className="hover:text-accent-400 transition-colors">
                       bookings@venue.com
                     </a>
                   </p>
                   <p>
-                    Press:{' '}
+                    {t(tr.press, lang)}:{' '}
                     <a href="mailto:press@venue.com" className="hover:text-accent-400 transition-colors">
                       press@venue.com
                     </a>
@@ -181,19 +176,19 @@ export default function Contact() {
               {/* Hours */}
               <div>
                 <h3 className="text-sm font-semibold text-brand-200 uppercase tracking-wider mb-3">
-                  Office Hours
+                  {t(tr.hoursLabel, lang)}
                 </h3>
                 <div className="space-y-1 text-brand-300">
-                  <p>Monday - Friday: 10:00 AM - 6:00 PM</p>
-                  <p>Saturday: 12:00 PM - 4:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p>{t(tr.hoursWeekdays, lang)}</p>
+                  <p>{t(tr.hoursSaturday, lang)}</p>
+                  <p>{t(tr.hoursSunday, lang)}</p>
                 </div>
               </div>
 
               {/* Social Media */}
               <div>
                 <h3 className="text-sm font-semibold text-brand-200 uppercase tracking-wider mb-3">
-                  Follow Us
+                  {t(tr.followLabel, lang)}
                 </h3>
                 <div className="flex gap-4">
                   <a
@@ -234,19 +229,18 @@ export default function Contact() {
       <Section spacing="large" background="darker">
         <div className="text-center mb-8">
           <h2 className="heading-md text-brand-50 mb-6">
-            Find Us
+            {t(tr.findUsTitle, lang)}
           </h2>
         </div>
         <div className="aspect-[21/9] bg-brand-700 rounded-sm overflow-hidden border border-brand-600">
-          {/* Placeholder for map - integrate Google Maps or similar in production */}
           <div className="w-full h-full flex items-center justify-center text-brand-400">
             <div className="text-center">
               <svg className="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <p>Map integration placeholder</p>
-              <p className="text-sm mt-2">Add Google Maps embed or similar service</p>
+              <p>{t(tr.mapPlaceholder, lang)}</p>
+              <p className="text-sm mt-2">{t(tr.mapNote, lang)}</p>
             </div>
           </div>
         </div>

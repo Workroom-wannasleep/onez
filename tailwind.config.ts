@@ -23,16 +23,16 @@ const config: Config = {
           900: '#0d0f12',
         },
         accent: {
-          50: '#fef3e2',
-          100: '#fde6c5',
-          200: '#fbd08b',
-          300: '#f9ba51',
-          400: '#f7a417',
-          500: '#d68a0d',
-          600: '#a56d0a',
-          700: '#745007',
-          800: '#433304',
-          900: '#121601',
+          50:  '#fff7ed',
+          100: '#ffecd0',
+          200: '#ffd49e',
+          300: '#ffb86b',
+          400: '#ff9a38',   // candlelight highlight
+          500: '#e87620',   // primary button / deep candlelight
+          600: '#c05510',
+          700: '#8a3b0a',
+          800: '#4d2205',
+          900: '#1a0b01',
         }
       },
       fontFamily: {

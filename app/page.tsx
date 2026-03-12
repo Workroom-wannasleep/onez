@@ -1,26 +1,32 @@
+'use client';
+
 import Link from "next/link";
 import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations, t } from "@/lib/translations";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
+  const { lang } = useLanguage();
+  const tr = translations.home;
 
   return (
     <>
       {/* Hero Section */}
       <Hero
         title="Space Onez"
-        subtitle="영도의 살아있는 역사를 품은 레스토랑형 카페, 스페이스 원지"
+        subtitle={t(tr.heroSubtitle, lang)}
         imageSrc="/images/onez-main.jpg"
         imageAlt="Onez interior"
         height="full"
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button href="/events" variant="primary" size="large">
-            프로그램 안내
+            {t(tr.programBtn, lang)}
           </Button>
           <Button href="/venue" variant="outline" size="large">
-            공간 둘러보기
+            {t(tr.spaceBtn, lang)}
           </Button>
         </div>
       </Hero>
@@ -44,16 +50,12 @@ export default function Home() {
               ONEZ
             </p>
 
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white">
-              영도의 시간과 공간을 담은 곳,
-              <br />
-              스페이스 원지
+            <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white whitespace-pre-line">
+              {t(tr.introHeading, lang)}
             </h2>
 
-            <p className="mt-8 max-w-3xl mx-auto text-lg md:text-2xl leading-relaxed text-white/90">
-              스페이스 원지는 레스토랑형 카페이자 복합 문화 공간으로,
-              <br />
-              식사와 휴식, 전시와 모임이 자연스럽게 공존하는 장소입니다.
+            <p className="mt-8 max-w-3xl mx-auto text-lg md:text-2xl leading-relaxed text-white/90 whitespace-pre-line">
+              {t(tr.introBody, lang)}
             </p>
           </div>
         </div>
@@ -66,34 +68,34 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-6">Onez</h3>
                 <p className="text-sm leading-relaxed text-white/80">
-                  하나의 공간, 다양한 가치
+                  {t(tr.footerTagline, lang)}
                 </p>
               </div>
 
               {/* Links */}
               <div>
                 <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/90">
-                  Menu
+                  {t(tr.footerNavTitle, lang)}
                 </h4>
                 <ul className="space-y-2 text-sm text-white/80">
                   <li>
                     <Link href="/about" className="hover:text-white transition-colors">
-                      ONEZ 소개
+                      {t(tr.footerAbout, lang)}
                     </Link>
                   </li>
                   <li>
                     <Link href="/venue" className="hover:text-white transition-colors">
-                      공간 안내
+                      {t(tr.footerVenue, lang)}
                     </Link>
                   </li>
                   <li>
                     <Link href="/events" className="hover:text-white transition-colors">
-                      프로그램
+                      {t(tr.footerEvents, lang)}
                     </Link>
                   </li>
                   <li>
                     <Link href="/contact" className="hover:text-white transition-colors">
-                      문의
+                      {t(tr.footerContact, lang)}
                     </Link>
                   </li>
                 </ul>
@@ -105,7 +107,7 @@ export default function Home() {
                   Contact
                 </h4>
                 <div className="space-y-2 text-sm text-white/80">
-                  <p>부산광역시 영도구</p>
+                  <p>{t(tr.footerAddress, lang)}</p>
                   <p>ONEZ</p>
                   <p className="pt-2">
                     <a

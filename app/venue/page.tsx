@@ -1,229 +1,223 @@
-import { Metadata } from "next";
-import Hero from "@/components/ui/Hero";
-import Section from "@/components/ui/Section";
-import ImageGrid from "@/components/ui/ImageGrid";
-import Button from "@/components/ui/Button";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Our Venue",
-  description: "Explore our state-of-the-art facilities and versatile event spaces.",
-};
+import SpaceSlideshow from "@/components/ui/SpaceSlideshow";
+import Button from "@/components/ui/Button";
+import Section from "@/components/ui/Section";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations, t } from "@/lib/translations";
+
+const features = [
+  {
+    title: { ko: "다이닝 & 카페", en: "Dining & Café" },
+    body: {
+      ko: "레스토랑형 카페로 식사와 커피, 음료가 함께합니다. 스테이크 하우스 원지의 시그니처 메뉴와 엄선된 와인을 경험하세요.",
+      en: "A restaurant-style café offering meals, coffee, and drinks. Experience Steak House Onez's signature menu and curated wine selection.",
+    },
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: { ko: "전시 & 문화", en: "Exhibition & Culture" },
+    body: {
+      ko: "팝아트부터 현대 미술까지, 공간 전체가 살아있는 갤러리입니다. 정기적인 전시와 문화 행사가 이곳에서 열립니다.",
+      en: "From pop art to contemporary works, the entire space is a living gallery. Regular exhibitions and cultural events are held here.",
+    },
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: { ko: "공연 & 라이브", en: "Performance & Live" },
+    body: {
+      ko: "전용 무대와 음향 시스템을 갖춘 공연 공간. 라이브 음악과 퍼포먼스가 일상의 한 부분이 되는 곳입니다.",
+      en: "A dedicated stage and sound system for live performance. A place where live music and performance become part of everyday life.",
+    },
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: { ko: "대관 & 모임", en: "Rental & Gatherings" },
+    body: {
+      ko: "기업 행사, 프라이빗 파티, 팝업 스토어까지. 넓은 공간과 유연한 구성으로 다양한 목적에 맞게 대관 가능합니다.",
+      en: "Corporate events, private parties, pop-up stores and more. Flexible layout available for any occasion.",
+    },
+    icon: (
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    ),
+  },
+];
 
 export default function Venue() {
-  const venueImages = [
-    {
-      src: "/images/venue-main.jpg",
-      alt: "Main hall",
-      title: "Main Hall",
-      description: "Capacity: 500 | World-class acoustics",
-    },
-    {
-      src: "/images/venue-gallery.jpg",
-      alt: "Gallery space",
-      title: "Gallery Space",
-      description: "Perfect for exhibitions and receptions",
-    },
-    {
-      src: "/images/venue-lounge.jpg",
-      alt: "Lounge area",
-      title: "Lounge Area",
-      description: "Intimate setting for small gatherings",
-    },
-    {
-      src: "/images/venue-terrace.jpg",
-      alt: "Outdoor terrace",
-      title: "Outdoor Terrace",
-      description: "Open-air venue with city views",
-    },
-    {
-      src: "/images/venue-stage.jpg",
-      alt: "Performance stage",
-      title: "Performance Stage",
-      description: "Professional lighting and sound systems",
-    },
-    {
-      src: "/images/venue-backstage.jpg",
-      alt: "Backstage facilities",
-      title: "Backstage",
-      description: "Artist-friendly green rooms and amenities",
-    },
-  ];
+  const { lang } = useLanguage();
+  const tr = translations.venue;
 
   return (
     <>
-      {/* Hero Section */}
-      <Hero
-        title="Our Venue"
-        subtitle="A versatile space designed for unforgettable experiences."
-        imageSrc="/images/venue-hero.jpg"
-        imageAlt="Venue overview"
-        height="medium"
-      />
+      {/* Slideshow */}
+      <SpaceSlideshow />
 
-      {/* Overview Section */}
+      {/* Space intro */}
       <Section spacing="large" background="dark">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-md text-brand-50 mb-8">
-            State-of-the-Art Facilities
-          </h2>
-          <p className="body-lg text-brand-200 mb-6">
-            Our venue combines cutting-edge technology with timeless design to
-            create the perfect environment for any event.
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-[0.25em] text-accent-400 mb-4">
+            Space Onez
           </p>
-          <p className="body-md text-brand-300">
-            From intimate gatherings to large-scale productions, our flexible
-            spaces and professional-grade equipment ensure your event exceeds
-            expectations.
+          <h2 className="heading-md text-brand-50 mb-6">
+            {lang === "ko"
+              ? "영도 조선소 창고에서\n복합문화공간으로"
+              : "From Yeongdo Shipyard Warehouse\nto Cultural Complex"}
+          </h2>
+          <p className="body-md text-brand-300 leading-relaxed">
+            {lang === "ko"
+              ? "스페이스 원지는 부산 영도의 오래된 조선소 창고를 리노베이션한 복합문화공간입니다. 높은 철골 천장과 거친 콘크리트 벽이 그대로 살아있는 이 공간에서, 식사와 커피, 전시와 공연, 모임이 자연스럽게 공존합니다."
+              : "Space Onez is a multi-cultural complex renovated from an old shipyard warehouse in Yeongdo, Busan. Within this space where high steel ceilings and raw concrete walls remain intact, dining, coffee, exhibitions, performances, and gatherings naturally coexist."}
           </p>
         </div>
       </Section>
-
-      {/* Spaces Gallery */}
+      {/* Features grid */}
       <Section spacing="large" background="darker">
-        <div className="text-center mb-12">
-          <h2 className="heading-md text-brand-50 mb-6">
-            Explore Our Spaces
-          </h2>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className="flex gap-5 p-6 bg-brand-800/40 border border-brand-700 rounded-sm hover:border-brand-600 transition-colors"
+            >
+              <div className="flex-shrink-0 w-11 h-11 flex items-center justify-center bg-accent-500/10 border border-accent-500/25 rounded-sm text-accent-400">
+                {f.icon}
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-brand-50 mb-2">
+                  {t(f.title, lang)}
+                </h3>
+                <p className="text-sm text-brand-300 leading-relaxed">
+                  {t(f.body, lang)}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-        <ImageGrid images={venueImages} columns={3} gap="large" aspectRatio="landscape" />
       </Section>
-
-      {/* Features Section */}
+      {/* Floor Plan */}
       <Section spacing="large" background="dark">
-        <div className="text-center mb-16">
-          <h2 className="heading-md text-brand-50 mb-6">
-            World-Class Amenities
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Feature 1 */}
-          <div className="text-center p-6 bg-brand-800/50 rounded-sm border border-brand-700">
-            <div className="w-12 h-12 bg-accent-500/10 border border-accent-500/30 rounded-sm mx-auto mb-4 flex items-center justify-center">
-              <svg className="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m0 0a5 5 0 007.072 0" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-brand-50 mb-2">Pro Audio</h3>
-            <p className="text-sm text-brand-300">
-              Industry-leading sound system with expert technicians
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-[0.25em] text-accent-400 mb-3">
+              Space Info
             </p>
+            <h2 className="heading-md text-brand-50">
+              {lang === "ko" ? "공간 구성" : "Floor Plan"}
+            </h2>
           </div>
 
-          {/* Feature 2 */}
-          <div className="text-center p-6 bg-brand-800/50 rounded-sm border border-brand-700">
-            <div className="w-12 h-12 bg-accent-500/10 border border-accent-500/30 rounded-sm mx-auto mb-4 flex items-center justify-center">
-              <svg className="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-brand-50 mb-2">Video & Lighting</h3>
-            <p className="text-sm text-brand-300">
-              Professional lighting rigs and projection systems
-            </p>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {[
+              {
+                label: { ko: "총 면적", en: "Total Area" },
+                value: "3,620㎡",
+                sub: "1,097평",
+              },
+              {
+                label: { ko: "ONE Z", en: "ONE Z" },
+                value: "303평",
+                sub: "~1,001㎡",
+              },
+              {
+                label: { ko: "창고 1", en: "Warehouse 1" },
+                value: "539평",
+                sub: "~1,782㎡",
+              },
+              {
+                label: { ko: "창고 2·3", en: "Warehouse 2·3" },
+                value: "255평",
+                sub: "~843㎡",
+              },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="text-center p-4 bg-brand-800/40 border border-brand-700 rounded-sm"
+              >
+                <p className="text-xs text-brand-400 uppercase tracking-wider mb-1">
+                  {stat.label[lang]}
+                </p>
+                <p className="text-xl font-bold text-accent-400">
+                  {stat.value}
+                </p>
+                <p className="text-xs text-brand-500 mt-0.5">{stat.sub}</p>
+              </div>
+            ))}
           </div>
 
-          {/* Feature 3 */}
-          <div className="text-center p-6 bg-brand-800/50 rounded-sm border border-brand-700">
-            <div className="w-12 h-12 bg-accent-500/10 border border-accent-500/30 rounded-sm mx-auto mb-4 flex items-center justify-center">
-              <svg className="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-brand-50 mb-2">Connectivity</h3>
-            <p className="text-sm text-brand-300">
-              High-speed WiFi and live streaming capabilities
-            </p>
-          </div>
-
-          {/* Feature 4 */}
-          <div className="text-center p-6 bg-brand-800/50 rounded-sm border border-brand-700">
-            <div className="w-12 h-12 bg-accent-500/10 border border-accent-500/30 rounded-sm mx-auto mb-4 flex items-center justify-center">
-              <svg className="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold text-brand-50 mb-2">Accessibility</h3>
-            <p className="text-sm text-brand-300">
-              Fully accessible with inclusive facilities
-            </p>
+          {/* Floor plan image */}
+          <div className="rounded-sm overflow-hidden border border-brand-700">
+            <img
+              src="/images/spaces/floor_plan.jpg"
+              alt={lang === "ko" ? "공간 전개도" : "Floor plan"}
+              className="w-full object-contain"
+            />
           </div>
         </div>
       </Section>
 
-      {/* Specifications Section */}
-      <Section spacing="large" background="darker">
-        <div className="grid md:grid-cols-2 gap-16">
-          <div>
-            <h2 className="heading-sm text-brand-50 mb-6">
-              Technical Specifications
-            </h2>
-            <ul className="space-y-4 text-brand-200">
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Main Hall: 8,000 sq ft with 20 ft ceilings</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Stage: 40 ft wide x 30 ft deep</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Seating: Flexible configurations up to 500 capacity</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Green rooms: 3 private dressing rooms</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Load-in: Direct ground-level access</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="heading-sm text-brand-50 mb-6">
-              Available Services
-            </h2>
-            <ul className="space-y-4 text-brand-200">
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Professional sound and lighting technicians</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Event planning and coordination</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Catering partnerships and bar service</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Box office and ticketing support</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-accent-400 mr-3">•</span>
-                <span>Marketing and promotional assistance</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      {/* CTA Section */}
+      {/* CTA */}
       <Section spacing="medium" background="accent">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="heading-md text-brand-50 mb-6">
-            Book Our Venue
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="heading-md text-brand-50 mb-4">
+            {t(tr.ctaTitle, lang)}
           </h2>
-          <p className="body-md text-brand-100 mb-8">
-            Ready to bring your event to life? Get in touch with our team to
-            discuss availability and pricing.
-          </p>
+          <p className="body-md text-brand-100 mb-8">{t(tr.ctaBody, lang)}</p>
           <Button href="/contact" variant="primary" size="large">
-            Contact Us
+            {t(tr.ctaBtn, lang)}
           </Button>
         </div>
       </Section>
