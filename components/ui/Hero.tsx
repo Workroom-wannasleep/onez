@@ -7,6 +7,11 @@ interface HeroProps {
   imageAlt: string;
   height?: "small" | "medium" | "large" | "full";
   overlay?: boolean;
+  imagePosition?: string;
+  imageScale?: number;
+  imageFit?: "cover" | "contain";
+  textPosition?: "center" | "bottom-left";
+  titleClassName?: string;
   children?: React.ReactNode;
 }
 
@@ -17,6 +22,11 @@ export default function Hero({
   imageAlt,
   height = "large",
   overlay = true,
+  imagePosition = "center",
+  imageScale = 1,
+  imageFit = "cover",
+  textPosition = "center",
+  titleClassName,
   children,
 }: HeroProps) {
   const heightClasses = {
@@ -27,28 +37,29 @@ export default function Hero({
   };
 
   return (
-    <section className={`relative ${heightClasses[height]} flex items-center justify-center overflow-hidden`}>
+    <section className={`relative ${heightClasses[height]} flex overflow-hidden bg-black ${textPosition === "bottom-left" ? "items-end justify-start" : "items-center justify-center"}`}>
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <Image
           src={imageSrc}
           alt={imageAlt}
           fill
-          className="object-cover"
+          className={imageFit === "contain" ? "object-contain" : "object-cover"}
+          style={{ objectPosition: imagePosition, transform: `scale(${imageScale})`, transformOrigin: "center center" }}
           priority
         />
         {overlay && (
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-900/50 to-brand-900/70" />
+          <div className={`absolute inset-0 ${textPosition === "bottom-left" ? "bg-gradient-to-t from-black/80 via-black/20 to-transparent" : "bg-gradient-to-b from-brand-900/70 via-brand-900/50 to-brand-900/70"}`} />
         )}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <h1 className="heading-xl text-brand-50 mb-6">
+      <div className={`relative z-10 px-12 ${textPosition === "bottom-left" ? "pb-20 text-left max-w-2xl" : "text-center px-6 max-w-5xl mx-auto"}`}>
+        <h1 className={titleClassName ?? "font-display text-5xl md:text-7xl lg:text-8xl font-light italic tracking-wide text-brand-50 mb-4"}>
           {title}
         </h1>
         {subtitle && (
-          <p className="body-lg text-brand-100 max-w-3xl mx-auto">
+          <p className={`body-lg text-brand-100 ${textPosition === "bottom-left" ? "" : "max-w-3xl mx-auto"}`}>
             {subtitle}
           </p>
         )}

@@ -1,6 +1,6 @@
 interface SectionProps {
   children: React.ReactNode;
-  background?: "dark" | "darker" | "accent";
+  background?: "dark" | "darker" | "accent" | "white";
   spacing?: "small" | "medium" | "large";
   className?: string;
 }
@@ -15,6 +15,7 @@ export default function Section({
     dark: "bg-brand-900",
     darker: "bg-brand-800",
     accent: "bg-gradient-to-br from-brand-800 to-brand-900",
+    white: "bg-white",
   };
 
   const spacingClasses = {

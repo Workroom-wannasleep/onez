@@ -20,7 +20,7 @@ export default function Button({
   const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-sm";
 
   const variantClasses = {
-    primary: "bg-accent-500 text-brand-900 hover:bg-accent-400 active:bg-accent-600",
+    primary: "bg-accent-400 text-brand-900 hover:bg-accent-300 active:bg-accent-500",
     secondary: "bg-brand-700 text-brand-50 hover:bg-brand-600 active:bg-brand-800",
     outline: "border-2 border-brand-400 text-brand-50 hover:bg-brand-800 hover:border-brand-300 active:bg-brand-700",
   };
