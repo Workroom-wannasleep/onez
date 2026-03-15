@@ -38,19 +38,19 @@ export default function Home() {
         </div>
 
         {/* 본문 텍스트 */}
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-start px-8 pt-28 pb-72 text-center">
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-0 pt-28 pb-72 text-center">
           <div className="max-w-4xl">
-            <p className="mb-4 text-sm uppercase tracking-[0.25em] text-white/70">
+            <p className="mb-12 text-2xl uppercase tracking-[0.3em] text-white/60">
               ONEZ
             </p>
 
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white">
+            <h2 className="text-4xl md:text-6xl font-normal leading-[1,2] text-white">
               영도의 시간과 공간을 담은 곳,
               <br />
               스페이스 원지
             </h2>
 
-            <p className="mt-8 max-w-3xl mx-auto text-lg md:text-2xl leading-relaxed text-white/90">
+            <p className="mt-10 max-w-3xl mx-auto text-lg md:text-2xl leading-relaxed text-white/90">
               스페이스 원지는 레스토랑형 카페이자 복합 문화 공간으로,
               <br />
               식사와 휴식, 전시와 모임이 자연스럽게 공존하는 장소입니다.
@@ -71,11 +71,11 @@ export default function Home() {
               </div>
 
               {/* Links */}
-              <div>
+              <div className="flex flex-col items-center">
                 <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/90">
                   Menu
                 </h4>
-                <ul className="space-y-2 text-sm text-white/80">
+                <ul className="space-y-2 text-sm text-white/80 text-center">
                   <li>
                     <Link href="/about" className="hover:text-white transition-colors">
                       ONEZ 소개
@@ -100,7 +100,7 @@ export default function Home() {
               </div>
 
               {/* Contact */}
-              <div>
+              <div className="flex flex-col items-start ml-auto">
                 <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/90">
                   Contact
                 </h4>
