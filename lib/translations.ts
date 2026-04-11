@@ -228,6 +228,10 @@ export const translations = {
       en: "Discover our calendar of concerts, exhibitions, performances, and community gatherings.",
     },
     getTickets: { ko: "티켓 구매", en: "Get Tickets" },
+    noUpcomingEvents: {
+      ko: "현재 예정된 이벤트가 없습니다. 곧 새로운 이벤트를 준비하고 있으니 기대해주세요.",
+      en: "There are no upcoming events at the moment. We're working on something exciting — stay tuned!",
+    },
     pastEventsTitle: { ko: "지난 이벤트", en: "Past Events" },
     pastEventsBody: {
       ko: "지금까지 개최한 다양한 이벤트를 둘러보세요. 매진된 콘서트부터 획기적인 전시까지, 우리가 함께 만들어온 추억이 자랑스럽습니다.",

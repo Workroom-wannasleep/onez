@@ -15,12 +15,13 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <Hero
-        title="one z"
+        logoSrc="/images/logo/logo2.png"
+        logoAlt="one z"
+        logoClassName="w-56 md:w-80 lg:w-96 mx-auto mb-4"
         subtitle={t(tr.heroSubtitle, lang)}
         imageSrc="/images/onez-main.jpg"
         imageAlt="Onez interior"
         height="full"
-        titleClassName="font-sans text-7xl md:text-9xl lg:text-10xl font-semibold tracking-wide text-brand-50 mb-4"
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button href="/events" variant="primary" size="large">

@@ -107,7 +107,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-accent-400 text-brand-900 font-medium rounded-sm hover:bg-accent-300 active:bg-accent-500 transition-colors"
+                className="w-full px-8 py-4 bg-accent-400 text-white font-medium rounded-sm hover:bg-accent-500 active:bg-accent-600 transition-colors"
               >
                 {t(tr.sendBtn, lang)}
               </button>

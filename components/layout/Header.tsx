@@ -40,11 +40,12 @@ export default function Header() {
     >
       <nav className="container-width px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-3xl font-sans font-bold text-brand-50 hover:text-accent-400 transition-colors"
-        >
-          one z
+        <Link href="/" className="opacity-90 hover:opacity-100 transition-opacity">
+          <img
+            src="/images/logo/logo2.png"
+            alt="one z"
+            className="h-9 w-auto invert"
+          />
         </Link>
 
         {/* Desktop Navigation */}

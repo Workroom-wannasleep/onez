@@ -23,16 +23,16 @@ const config: Config = {
           900: '#0d0f12',
         },
         accent: {
-          50:  '#fff7ed',
-          100: '#ffecd0',
-          200: '#ffd49e',
-          300: '#ffb86b',
-          400: '#ff9a38',   // candlelight highlight
-          500: '#e87620',   // primary button / deep candlelight
-          600: '#c05510',
-          700: '#8a3b0a',
-          800: '#4d2205',
-          900: '#1a0b01',
+          50:  '#f7f5f4',
+          100: '#ede9e7',
+          200: '#dbd4d1',
+          300: '#c4b5b0',
+          400: '#a6938c',   // logo primary — RGB(166,147,140)
+          500: '#8a7870',   // button active / deeper tone
+          600: '#6e5d57',
+          700: '#524540',
+          800: '#372e2a',
+          900: '#1c1715',
         }
       },
       fontFamily: {

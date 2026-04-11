@@ -1,7 +1,10 @@
 import Image from "next/image";
 
 interface HeroProps {
-  title: string;
+  title?: string;
+  logoSrc?: string;
+  logoAlt?: string;
+  logoClassName?: string;
   subtitle?: string;
   imageSrc: string;
   imageAlt: string;
@@ -17,6 +20,9 @@ interface HeroProps {
 
 export default function Hero({
   title,
+  logoSrc,
+  logoAlt = "",
+  logoClassName,
   subtitle,
   imageSrc,
   imageAlt,
@@ -55,9 +61,17 @@ export default function Hero({
 
       {/* Content */}
       <div className={`relative z-10 px-12 ${textPosition === "bottom-left" ? "pb-20 text-left max-w-2xl" : "text-center px-6 max-w-5xl mx-auto"}`}>
-        <h1 className={titleClassName ?? "font-sans text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-brand-50 mb-4"}>
-          {title}
-        </h1>
+        {logoSrc ? (
+          <img
+            src={logoSrc}
+            alt={logoAlt}
+            className={logoClassName ?? "w-48 md:w-64 lg:w-80 mx-auto mb-4"}
+          />
+        ) : (
+          <h1 className={titleClassName ?? "font-sans text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-brand-50 mb-4"}>
+            {title}
+          </h1>
+        )}
         {subtitle && (
           <p className={`body-lg text-brand-100 ${textPosition === "bottom-left" ? "" : "max-w-3xl mx-auto"}`}>
             {subtitle}

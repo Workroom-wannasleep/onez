@@ -8,11 +8,16 @@
   }
 
   body {
-    @apply bg-brand-900 text-brand-50 font-sans;
+    @apply bg-brand-900 text-brand-50 font-sans antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans;
+  }
+
+  ::selection {
+    background-color: #a6938c40;
+    color: #f7f5f4;
   }
 }
 
