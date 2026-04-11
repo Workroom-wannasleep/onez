@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="text-3xl font-bold text-white mb-6">Onez</h3>
+            <h3 className="text-3xl font-bold text-white mb-6">one z</h3>
             <p className="text-sm leading-relaxed text-white/80">
               {t(tr.footerTagline, lang)}
             </p>
@@ -33,22 +33,34 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-white/80 text-center">
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors"
+                >
                   {t(tr.footerAbout, lang)}
                 </Link>
               </li>
               <li>
-                <Link href="/venue" className="hover:text-white transition-colors">
+                <Link
+                  href="/venue"
+                  className="hover:text-white transition-colors"
+                >
                   {t(tr.footerVenue, lang)}
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="hover:text-white transition-colors">
+                <Link
+                  href="/events"
+                  className="hover:text-white transition-colors"
+                >
                   {t(tr.footerEvents, lang)}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
+                <Link
+                  href="/contact"
+                  className="hover:text-white transition-colors"
+                >
                   {t(tr.footerContact, lang)}
                 </Link>
               </li>
@@ -62,14 +74,20 @@ export default function Footer() {
             </h4>
             <div className="space-y-2 text-sm text-white/80">
               <p>{t(tr.footerAddress, lang)}</p>
-              <p>ONEZ</p>
+              <p>one z</p>
               <p className="pt-2">
-                <a href="mailto:info@onez.com" className="hover:text-white transition-colors">
+                <a
+                  href="mailto:info@onez.com"
+                  className="hover:text-white transition-colors"
+                >
                   info@onez.com
                 </a>
               </p>
               <p>
-                <a href="tel:+820000000000" className="hover:text-white transition-colors">
+                <a
+                  href="tel:+820000000000"
+                  className="hover:text-white transition-colors"
+                >
                   000-0000-0000
                 </a>
               </p>
@@ -78,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-white/60">
-          © {currentYear} ONEZ. All rights reserved.
+          © {currentYear} one z. All rights reserved.
         </div>
       </div>
     </footer>

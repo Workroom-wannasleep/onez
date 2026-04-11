@@ -42,9 +42,9 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-3xl font-display font-bold text-brand-50 hover:text-accent-400 transition-colors"
+          className="text-3xl font-sans font-bold text-brand-50 hover:text-accent-400 transition-colors"
         >
-          onez
+          one z
         </Link>
 
         {/* Desktop Navigation */}

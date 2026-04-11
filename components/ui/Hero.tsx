@@ -55,7 +55,7 @@ export default function Hero({
 
       {/* Content */}
       <div className={`relative z-10 px-12 ${textPosition === "bottom-left" ? "pb-20 text-left max-w-2xl" : "text-center px-6 max-w-5xl mx-auto"}`}>
-        <h1 className={titleClassName ?? "font-display text-5xl md:text-7xl lg:text-8xl font-light italic tracking-wide text-brand-50 mb-4"}>
+        <h1 className={titleClassName ?? "font-sans text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-brand-50 mb-4"}>
           {title}
         </h1>
         {subtitle && (

@@ -110,7 +110,7 @@ export default function Venue() {
       <Section spacing="large" background="dark">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.25em] text-accent-400 mb-4">
-            Space Onez
+            Space one z
           </p>
           <h2 className="heading-md text-brand-50 mb-6">
             {lang === "ko"
@@ -120,7 +120,7 @@ export default function Venue() {
           <p className="body-md text-brand-300 leading-relaxed">
             {lang === "ko"
               ? "스페이스 원지는 부산 영도의 오래된 조선소 창고를 리노베이션한 복합문화공간입니다. 높은 철골 천장과 거친 콘크리트 벽이 그대로 살아있는 이 공간에서, 식사와 커피, 전시와 공연, 모임이 자연스럽게 공존합니다."
-              : "Space Onez is a multi-cultural complex renovated from an old shipyard warehouse in Yeongdo, Busan. Within this space where high steel ceilings and raw concrete walls remain intact, dining, coffee, exhibitions, performances, and gatherings naturally coexist."}
+              : "Space one z is a multi-cultural complex renovated from an old shipyard warehouse in Yeongdo, Busan. Within this space where high steel ceilings and raw concrete walls remain intact, dining, coffee, exhibitions, performances, and gatherings naturally coexist."}
           </p>
         </div>
       </Section>

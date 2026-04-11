@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const inter = Inter({
-  subsets: ["latin"],
+const outfit = localFont({
+  src: "../public/fonts/outfit.ttf",
   variable: "--font-inter",
+  display: "swap",
+});
+
+const notoSansKR = localFont({
+  src: "../public/fonts/notosansKR.otf",
+  variable: "--font-kr",
   display: "swap",
 });
 
@@ -21,20 +28,28 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "ONEZ | 부산 영도 복합문화공간",
-    template: "%s | ONEZ",
+    default: "one z| 부산 영도 복합문화공간",
+    template: "%s | one z",
   },
   description:
-    "부산 영도에 위치한 레스토랑형 카페이자 복합문화공간 ONEZ. 식사, 커피, 전시, 모임, 대관이 함께 흐르는 공간.",
-  keywords: ["ONEZ", "영도", "부산", "카페", "레스토랑", "복합문화공간", "대관"],
-  authors: [{ name: "ONEZ" }],
+    "부산 영도에 위치한 레스토랑형 카페이자 복합문화공간 one z. 식사, 커피, 전시, 모임, 대관이 함께 흐르는 공간.",
+  keywords: [
+    "onez",
+    "영도",
+    "부산",
+    "카페",
+    "레스토랑",
+    "복합문화공간",
+    "대관",
+  ],
+  authors: [{ name: "onez" }],
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    siteName: "ONEZ",
-    title: "ONEZ | 부산 영도 복합문화공간",
+    siteName: "one z",
+    title: "one z | 부산 영도 복합문화공간",
     description:
-      "부산 영도의 레스토랑형 카페이자 복합문화공간 ONEZ. 식사, 커피, 전시, 모임, 대관이 함께 흐르는 공간.",
+      "부산 영도의 레스토랑형 카페이자 복합문화공간 one z. 식사, 커피, 전시, 모임, 대관이 함께 흐르는 공간.",
   },
 };
 
@@ -44,7 +59,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${inter.variable} ${cormorant.variable}`}>
+    <html
+      lang="ko"
+      className={`${outfit.variable} ${notoSansKR.variable} ${cormorant.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased" suppressHydrationWarning>
         <LanguageProvider>
           <Header />

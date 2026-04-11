@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Hero from "@/components/ui/Hero";
@@ -15,11 +15,12 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <Hero
-        title="Space Onez"
+        title="one z"
         subtitle={t(tr.heroSubtitle, lang)}
         imageSrc="/images/onez-main.jpg"
         imageAlt="Onez interior"
         height="full"
+        titleClassName="font-sans text-7xl md:text-9xl lg:text-10xl font-semibold tracking-wide text-brand-50 mb-4"
       >
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button href="/events" variant="primary" size="large">
@@ -71,7 +72,7 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
               {/* Brand */}
               <div>
-                <h3 className="text-3xl font-bold text-white mb-6">Onez</h3>
+                <h3 className="text-3xl font-bold text-white mb-6">one z</h3>
                 <p className="text-sm leading-relaxed text-white/80">
                   {t(tr.footerTagline, lang)}
                 </p>
@@ -84,22 +85,34 @@ export default function Home() {
                 </h4>
                 <ul className="space-y-2 text-sm text-white/80 text-center">
                   <li>
-                    <Link href="/about" className="hover:text-white transition-colors">
+                    <Link
+                      href="/about"
+                      className="hover:text-white transition-colors"
+                    >
                       {t(tr.footerAbout, lang)}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/venue" className="hover:text-white transition-colors">
+                    <Link
+                      href="/venue"
+                      className="hover:text-white transition-colors"
+                    >
                       {t(tr.footerVenue, lang)}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/events" className="hover:text-white transition-colors">
+                    <Link
+                      href="/events"
+                      className="hover:text-white transition-colors"
+                    >
                       {t(tr.footerEvents, lang)}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="hover:text-white transition-colors">
+                    <Link
+                      href="/contact"
+                      className="hover:text-white transition-colors"
+                    >
                       {t(tr.footerContact, lang)}
                     </Link>
                   </li>
@@ -113,7 +126,7 @@ export default function Home() {
                 </h4>
                 <div className="space-y-2 text-sm text-white/80">
                   <p>{t(tr.footerAddress, lang)}</p>
-                  <p>ONEZ</p>
+                  <p>one z</p>
                   <p className="pt-2">
                     <a
                       href="mailto:info@onez.com"
@@ -135,7 +148,7 @@ export default function Home() {
             </div>
 
             <div className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-white/60">
-              © {currentYear} ONEZ. All rights reserved.
+              © {currentYear} one z. All rights reserved.
             </div>
           </div>
         </div>

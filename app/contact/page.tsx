@@ -13,7 +13,7 @@ export default function Contact() {
       {/* Header Section */}
       <section className="bg-brand-900 pt-36 pb-16 px-8">
         <div className="mx-auto max-w-7xl">
-          <h1 className="font-display text-5xl md:text-7xl font-light tracking-wide text-white mb-4">
+          <h1 className="font-sans text-5xl md:text-7xl font-light tracking-wide text-white mb-4">
             {t(tr.heroTitle, lang)}
           </h1>
           <p className="text-lg text-gray-200">{t(tr.heroSubtitle, lang)}</p>

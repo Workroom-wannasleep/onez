@@ -48,7 +48,7 @@ export default function Events() {
         imageSrc="/images/onez-event-pic.jpg"
         imageAlt="Events at our venue"
         height="full"
-        titleClassName="font-display text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-brand-50 mb-4"
+        titleClassName="font-sans text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-brand-50 mb-4"
       />
 
       {/* Events Listing */}
