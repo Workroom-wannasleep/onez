@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* Links */}
           <div className="flex flex-col items-center">
-            <h4 className="mb-4 text-base font-semibold uppercase tracking-wider text-white/90">
+            <h4 className="mb-4 text-base font-bold uppercase tracking-wider text-white">
               {t(tr.footerNavTitle, lang)}
             </h4>
             <ul className="space-y-2 text-sm text-white/80 text-center">
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="flex flex-col items-start ml-auto">
-            <h4 className="mb-4 text-base font-semibold uppercase tracking-wider text-white/90">
+            <h4 className="mb-4 text-base font-bold uppercase tracking-wider text-white">
               Contact
             </h4>
             <div className="space-y-2 text-sm text-white/80">

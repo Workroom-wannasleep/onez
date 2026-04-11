@@ -155,7 +155,7 @@ export const translations = {
     requiredNote:  { ko: '* 필수 항목입니다. 1-2 영업일 내에 답변 드리겠습니다.', en: "* Required fields. We'll respond to your inquiry within 1-2 business days." },
     infoTitle:     { ko: '연락처 정보', en: 'Contact Information' },
     addressLabel:  { ko: '주소', en: 'Address' },
-    address:       { ko: '부산광역시 영도구\nONEZ', en: '123 Cultural Street\nCity, State 12345\nUnited States' },
+    address:       { ko: '부산광역시 영도구 봉래나루로 214\n스페이스 원지', en: '214 Bongnaenaruro, Yeongdo-gu\nBusan, South Korea' },
     phoneLabel2:   { ko: '전화', en: 'Phone' },
     emailLabel2:   { ko: '이메일', en: 'Email' },
     generalInquiry: { ko: '일반 문의', en: 'General Inquiries' },
