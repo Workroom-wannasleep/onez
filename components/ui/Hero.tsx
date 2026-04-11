@@ -62,9 +62,11 @@ export default function Hero({
       {/* Content */}
       <div className={`relative z-10 px-12 ${textPosition === "bottom-left" ? "pb-20 text-left max-w-2xl" : "text-center px-6 max-w-5xl mx-auto"}`}>
         {logoSrc ? (
-          <img
+          <Image
             src={logoSrc}
             alt={logoAlt}
+            width={400}
+            height={160}
             className={logoClassName ?? "w-48 md:w-64 lg:w-80 mx-auto mb-4"}
           />
         ) : (

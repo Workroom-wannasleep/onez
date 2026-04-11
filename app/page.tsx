@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
@@ -37,10 +38,11 @@ export default function Home() {
       <section className="relative min-h-screen w-full overflow-hidden">
         {/* 배경 이미지 */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/images/onez-outdoor-apt.jpg"
             alt="ONEZ outdoor view"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/55" />
         </div>

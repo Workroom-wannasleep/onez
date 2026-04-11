@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import SpaceSlideshow from "@/components/ui/SpaceSlideshow";
 import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
@@ -200,10 +201,12 @@ export default function Venue() {
 
           {/* Floor plan image */}
           <div className="rounded-sm overflow-hidden border border-brand-700">
-            <img
+            <Image
               src="/images/spaces/floor_plan.jpg"
               alt={lang === "ko" ? "공간 전개도" : "Floor plan"}
-              className="w-full object-contain"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain"
             />
           </div>
         </div>

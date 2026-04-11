@@ -4,7 +4,9 @@
       "Bash(npx create-next-app@latest venue-website --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --eslint)",
       "Bash(npm install)",
       "Bash(npm run build:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(npm list:*)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

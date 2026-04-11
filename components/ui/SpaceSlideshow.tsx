@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/context/LanguageContext';
 
 const slides = [
@@ -77,10 +78,11 @@ export default function SpaceSlideshow() {
             i === current ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <img
+          <Image
             src={slide.src}
             alt={slide.label[lang]}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
         </div>
       ))}

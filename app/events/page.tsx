@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Hero from "@/components/ui/Hero";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -70,10 +71,11 @@ export default function Events() {
             >
               {/* Event Image */}
               <div className="relative aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden">
-                <img
+                <Image
                   src={event.image}
                   alt={t(event.title, lang)}
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
                 />
               </div>
 
@@ -132,10 +134,11 @@ export default function Events() {
             >
               {/* Event Image */}
               <div className="relative aspect-[4/3] bg-gray-200 rounded-sm overflow-hidden grayscale">
-                <img
+                <Image
                   src={event.image}
                   alt={t(event.title, lang)}
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
                 />
               </div>
 

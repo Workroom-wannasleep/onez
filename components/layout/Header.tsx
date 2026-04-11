@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -41,9 +42,11 @@ export default function Header() {
       <nav className="container-width px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="opacity-90 hover:opacity-100 transition-opacity">
-          <img
+          <Image
             src="/images/logo/logo2.png"
             alt="one z"
+            width={120}
+            height={36}
             className="h-9 w-auto invert"
           />
         </Link>
