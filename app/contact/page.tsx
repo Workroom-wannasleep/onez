@@ -214,23 +214,37 @@ export default function Contact() {
         </div>
       </Section>
 
-      {/* Map Placeholder */}
+      {/* Map Section */}
       <Section spacing="large" background="white">
         <div className="text-center mb-8">
           <h2 className="heading-md text-gray-900 mb-6">
             {t(tr.findUsTitle, lang)}
           </h2>
+          <p className="text-gray-500 mb-2">부산광역시 영도구 봉래나루로 214 스페이스 원지</p>
         </div>
-        <div className="aspect-[21/9] bg-gray-100 rounded-sm overflow-hidden border border-gray-200">
-          <div className="w-full h-full flex items-center justify-center text-gray-400">
-            <div className="text-center">
-              <svg className="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="aspect-[21/9] bg-gray-100 rounded-sm overflow-hidden border border-gray-200 relative">
+          <iframe
+            src="https://map.naver.com/p/search/부산광역시%20영도구%20봉래나루로%20214%20스페이스%20원지"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            title="스페이스 원지 위치"
+          />
+          <div className="absolute bottom-4 right-4">
+            <a
+              href="https://map.naver.com/p/search/부산광역시%20영도구%20봉래나루로%20214%20스페이스%20원지"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-sm text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <p>{t(tr.mapPlaceholder, lang)}</p>
-              <p className="text-sm mt-2">{t(tr.mapNote, lang)}</p>
-            </div>
+              네이버지도에서 보기
+            </a>
           </div>
         </div>
       </Section>

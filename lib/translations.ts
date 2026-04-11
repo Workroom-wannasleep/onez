@@ -285,8 +285,8 @@ export const translations = {
     infoTitle: { ko: "연락처 정보", en: "Contact Information" },
     addressLabel: { ko: "주소", en: "Address" },
     address: {
-      ko: "부산광역시 영도구\none z",
-      en: "123 Cultural Street\nCity, State 12345\nUnited States",
+      ko: "부산광역시 영도구 봉래나루로 214\n스페이스 원지",
+      en: "214 Bongnaenaruro, Yeongdo-gu\nBusan, South Korea",
     },
     phoneLabel2: { ko: "전화", en: "Phone" },
     emailLabel2: { ko: "이메일", en: "Email" },
